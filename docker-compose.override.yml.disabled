@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  airflow-webserver:
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      # tell the entrypoint to pip-install minio
+      _PIP_ADDITIONAL_REQUIREMENTS: |
+        minio
+  airflow-scheduler:
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      _PIP_ADDITIONAL_REQUIREMENTS: |
+        minio
+  airflow-worker:
+    environment:
+      _PIP_ADDITIONAL_REQUIREMENTS: |
+        minio
+  airflow-triggerer:
+    environment:
+      _PIP_ADDITIONAL_REQUIREMENTS: |
+        minio
